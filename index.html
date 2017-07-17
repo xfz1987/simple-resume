@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" id="meta">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>小疯子的简历</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body onselectstart="return false;">
+	<div class="page my-page">
+		<div class="container">
+			<section class="summary">
+				<div class="info">
+					<div class="advert">
+						<img src="images/head-image.jpg">
+					</div>
+					<h1>小疯子</h1>
+					<p>前端工程师</p>
+					<p>爱生活，爱前端</p>	
+				</div>
+				<div class="enter">查看详情</div>
+			</section>
+			<section class="works">
+				<ul class="wrap">
+					<!-- 基本信息 -->
+					<li class="base-page">
+						<dl>
+							<dt>Base Info</dt>
+							<dd><span>Name：</span><em>zifeng Gao</em></dd>
+							<dd><span>Sex：</span><em>Male</em></dd>
+							<dd><span>Age：</span><em>30</em></dd>
+							<dd><span>University：</span><em>Xi 'an university of electronic science and technology</em></dd>
+							<dd><span>Major：</span><em>Telecommunication Engineering</em></dd>
+							<dd><span>CET：</span><em>4</em></dd>
+							<dd><span>Tel：</span><em>13810001545</em></dd>
+							<dd><span>Email：</span><em>gaozifeng8888@163.com</em></dd>
+							<dd><span>In-service：</span><em>Yes</em></dd>
+							<dd><span>Work Years：</span><em>6</em></dd>
+							<dd><span>Job Intension：</span><em>front-end Web developer</em></dd>
+						</dl>
+						<div class="road"></div>
+						<div class="cloud cloud1 cloud1Anim"></div>
+						<div class="cloud cloud2 cloud2Anim"></div>
+						<div class="sun"></div>
+						<div class="go slit go-to-page2">Go</div>
+					</li>
+					<!-- 工作经历及技能 -->
+					<li class="products" style="overflow-y:auto;">
+						<h2 class="title">Works</h2>
+						<ul class="zps clearfix">
+							<li>
+        						<div class="imageWrapper">
+          							<img src="images/works/work_music.png">
+          							<a href="https://xfz1987.github.io/music/">view</a>
+        						</div>
+        						<h3>Music Box</h3>
+      						</li>
+      						<li>
+        						<div class="imageWrapper">
+          							<img src="images/works/datapicker.png" alt="">
+          							<a href="https://xfz1987.github.io/datepicker/index.html">view</a>
+        						</div>
+        						<h3>DatePicker</h3>
+      						</li>
+      						<li>
+        						<div class="imageWrapper">
+          							<img src="images/works/vue-resume.png" alt="">
+          							<a href="https://xfz1987.github.io/vue-resume/dist/index.html">view</a>
+        						</div>
+        						<h3>Vue Resume</h3>
+      						</li>
+      						<li>
+        						<div class="imageWrapper">
+          							<img src="images/works/look.png" alt="">
+          							<a href="https://xfz1987.github.io/look/">view</a>
+        						</div>
+        						<h3>七夕言情</h3>
+      						</li>
+      						<li>
+        						<div class="imageWrapper">
+          							<img src="images/works/isDeving.png" alt="">
+          							<a href="#">view</a>
+        						</div>
+        						<h3>可视化数据报告</h3>
+      						</li>
+						</ul>
+						<a class="contact" href="mailto:gaozifeng8888@163.com">gaozifeng8888@163.com</a>
+					</li>
+				</ul>
+				<div class="bird"></div>
+			</section>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		//页面滑动
+		;(function(){
+			var Swipe = function(container){
+				this.el = container.find(':first');//获取第一个子节点
+				this.swipe = {};//滑动对象
+				this.slides = this.el.find('>');//li页面数量
+				this.width = container.width();//获取容器尺寸
+				this.height = container.height();
+				this._init();
+			};
+			Swipe.prototype = {
+				_init: function(){
+					//设置li页面总宽度
+					this.el.css({
+        				width: (this.slides.length * this.width) + 'px',
+        				height: this.height + 'px'
+    				});
+    				//设置每一个页面li的宽度
+    				for(var i=0,len=this.slides.length;i<len;i++){
+        				this.slides.eq(i).css({
+        				    width: this.width+'px',
+        				    height:this.height+'px'
+        				});
+    				}
+				},
+				scrollTo: function(x, speed){
+					//执行动画移动
+        			this.el.css({
+        			    'transition-timing-function' : 'linear',
+        			    'transition-duration'        : speed + 'ms',
+        			    'transform'                  : 'translate3d(-' + x + 'px,0,0)',
+        				'transition-delay'           : 3000 + 'ms'
+        			});
+        			return this;
+				}
+			};
+			window['Swipe'] = Swipe;
+		})(jQuery);
+		var swipe = new Swipe($('.works'));
+	</script>
+	<script>
+		$(function(){
+			//获取兼容性动画结束事件名称
+    		var animationEnd = (function(){
+    		    var explorer = navigator.userAgent;
+    		    //为什么用~取反
+    		    //方式一: explorer.indexOf('WebKit') != -1
+    		    //方式二: ~explorer.indexOf('WebKit')
+    		    //如果没有找到 ~(-1) = 0;
+    		    if(~explorer.indexOf('WebKit')){
+    		        return 'webkitAnimationEnd';
+    		    }
+    		    return 'animationend';
+    		})();
+
+			$('.enter').click(function(){
+				$('.summary').addClass('hide');
+				$('.works').addClass('show');
+			});
+
+			//基本信息
+			$('.go-to-page2').click(function(){
+				$('.cloud1').addClass('cloud1Anim');
+				$('.cloud2').addClass('cloud2Anim');
+				$('.bird').addClass('bird-fly').addClass('fly-to-left');
+        		swipe.scrollTo($('.works').width(), 6500);
+        		setTimeout(function(){
+        			$('.contact').addClass('show');
+        		}, 8000);
+        	});
+		});				
+	</script>
+</body>
+</html>
