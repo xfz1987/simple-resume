@@ -221,6 +221,13 @@ body {
   top: 0;
   overflow: hidden;
 }
+@media screen and (min-width: 380px) {
+  .page {
+    width: 380px;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+}
 ul {
   list-style: none;
 }
