@@ -452,16 +452,16 @@ ul {
   background: url(../images/bird.png) -182px 0px no-repeat;
   -webkit-transform: translateX(0);
   transform: translateX(0);
-  -webkit-transition: -webkit-transform 6s linear;
-  transition: transform 6s linear;
+  -webkit-transition: -webkit-transform 10s linear;
+  transition: transform 10s linear;
 }
 .container .works .bird-fly {
   -webkit-animation: birdFly 400ms infinite steps(1, start);
   animation: birdFly 400ms infinite steps(1, start);
 }
 .container .works .fly-to-left {
-  -webkit-transform: translateX(-600px);
-  transform: translateX(-600px);
+  -webkit-transform: translateX(-2000px);
+  transform: translateX(-2000px);
 }
 .container .works .products {
   background-color: #feccc5;
